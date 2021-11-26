@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <!-- Dashboard header-->
+    <header class="navbar bg-dark bg-custom-2">
+        <h1 class="text-light">Weather Dashboard</h1>
+    </header>
+    <!--Parent container for rows-->
+    <div class="container">
+        <div class="row">
+            <!--sidebar column-->
+            <div id="searchbox" class="col-lg-3 col-sm-12">
+                <div class="card">
+                    <h3>Search by city:</h3>
+                    <form class="searchform">
+                        <input id="city-input" type="search" placeholder="Enter City" aria-label="search">
+                        <button id="search-btn" class="btn" type="submit"><i class="fa fa-search fa_default fa-1x"></i></button>
+                        <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#history-list" aria-expanded="false" aria-controls="history-list"><i class="fa fa-list fa_default fa-1x"></i></button>
+                    </form>
+                </div>
+            </div>
+            <!--main/5day column-->
+            <div id="main-column" class="col-lg-9 col-sm-12">
+                <!--placeholder for current data to display after user input-->
+                <section class="card" id="current" style="display:none;">
+                    <h1 id="city"></h1>
+                    <h5 id="date"></h5>
+                    <p id="temp"></p>
+                    <p id="humidity"></p>
+                    <p id="wind"></p>
+                    <p id="uv-index">UV Index:<span class="color"></span></p>
+                </section>
+                <!--5-day forecast-->
+                <section class="mt-2 mb-2" id="five-day" style="display:none;">
+                <h3>5-day Forecast:</h3>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

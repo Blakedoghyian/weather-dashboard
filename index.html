@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <title>Weather Dashboard</title>
 </head>
 <body>
     <!-- Dashboard header-->
-    <header class="navbar bg-dark bg-custom-2">
+    <header class="navbar bg-dark bg-custom-1">
         <h1 class="text-light">Weather Dashboard</h1>
     </header>
     <!--Parent container for rows-->
@@ -18,13 +21,14 @@
         <div class="row">
             <!--sidebar column-->
             <div id="searchbox" class="col-lg-3 col-sm-12">
-                <div class="card">
+                <div class="card bg-light">
                     <h3>Search by city:</h3>
-                    <form class="searchform">
+                    <form class="form-inline" id="city-form">
                         <input id="city-input" type="search" placeholder="Enter City" aria-label="search">
-                        <button id="search-btn" class="btn" type="submit"><i class="fa fa-search fa_default fa-1x"></i></button>
-                        <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#history-list" aria-expanded="false" aria-controls="history-list"><i class="fa fa-list fa_default fa-1x"></i></button>
+                        <button type="button" class="btn btn-primary" type="submit" id="form-submit"><i class="fas fa-search"></i></button>
                     </form>
+                    <!--search history options-->
+                    <ul class="list-group mt-2" id="city-list"></ul>
                 </div>
             </div>
             <!--main/5day column-->
@@ -41,9 +45,14 @@
                 <!--5-day forecast-->
                 <section class="mt-2 mb-2" id="five-day" style="display:none;">
                 <h3>5-day Forecast:</h3>
+                <!--dynamically generated 5day placeholder-->
+                <div class="card-deck">
+
+                </div>
                 </section>
             </div>
         </div>
     </div>
+<script src="assets/js/index.js"></script>
 </body>
 </html>

@@ -88,4 +88,59 @@ $(document).ready(function () {
         })
     }
 
+    //function for user input
+    function getWeather() {
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&lang=en&appid=aec299195260a001b09706b5bfe740f7";
+
+        //request for lat and lon data & storing it
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            lat = response.coord.lat;
+            lon = response.coord.lon;
+
+            //add and save city name and date
+            $("#city").text(response.name);
+            $("#date").text(moment.unix(response.dt).format("dddd, MM/DD/YYYY"));
+            localStorage.setItem("cityname", response.name);
+            
+
+        })
+    }
+
+    function searchBtn() {
+        cityName = $("input").val().trim();
+
+        //adds recent search buttons to list
+        var cityList = $("<button>");
+        cityList.addClass("list-group-item list-group-item-action");
+        cityList.text(cityName);
+        $("ul").prepend(cityList);
+        //clear input field
+        $("input").val("");
+
+        getWeather();
+    }
+
+
+    //submit event 
+    $("#city-form").submit(function (event) {
+        event.preventDefault();
+        searchBtn();
+    })
+
+    $("#form-submit").click(function (event) {
+        event.preventDefault();
+        searchBtn();
+    })
+
+    //event listener for user clicking a recent search
+    $("ul").on("click", "button", function () {
+        cityName = $(this).text();
+        console.log(cityName);
+
+        getWeather();
+    })
+
 })

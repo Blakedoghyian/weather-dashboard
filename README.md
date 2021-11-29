@@ -28,9 +28,12 @@ A straight forward weather dashboard using the Open Weather One Call API featuri
 
 # Live Link
 
-https://github.com/Blakedoghyian/weather-dashboard
+https://blakedoghyian.github.io/weather-dashboard/
 
 # Repository Link
 
+https://github.com/Blakedoghyian/weather-dashboard
+
 # Screenshot
+![Screenshot (20)](https://user-images.githubusercontent.com/91994720/143811773-c683120b-4008-41ba-9ea3-ad4c138936a5.png)
 

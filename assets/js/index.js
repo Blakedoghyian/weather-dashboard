@@ -105,7 +105,6 @@ $(document).ready(function () {
             $("#date").text(moment.unix(response.dt).format("dddd, MM/DD/YYYY"));
             localStorage.setItem("cityname", response.name);
             
-
         })
     }
 
@@ -142,5 +141,18 @@ $(document).ready(function () {
 
         getWeather();
     })
+
+    // funct to display recent searched data
+    function init(){
+        cityName = localStorage.getItem("cityname");
+        if (cityName === null) {
+            var cityList = $("<button>");
+            cityList.addClass("list-group-item list-group-item-action");
+            cityList.text(cityName);
+            $("ul").prepend(cityList);
+            getWeather();
+        }
+    }
+    init ();
 
 })

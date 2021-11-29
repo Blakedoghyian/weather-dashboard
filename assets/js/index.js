@@ -105,6 +105,7 @@ $(document).ready(function () {
             $("#date").text(moment.unix(response.dt).format("dddd, MM/DD/YYYY"));
             localStorage.setItem("cityname", response.name);
             
+            getWeatherOneAPI(lat,lon);
         })
     }
 
